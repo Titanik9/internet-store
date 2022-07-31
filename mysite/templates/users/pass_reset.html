@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block main %}
+  <h1>Восстановаление пароля</h1>
+  <form method="post" class="form-register auth">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn btn-danger" type="submit">Запросить новый пароль</button>
+  </form>
+{% endblock main %}

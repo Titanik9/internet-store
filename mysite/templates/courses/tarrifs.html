@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="form-section container">
+    {% user.is_authenticated == False or user.profile.account_type == 'free' %}
+    <h1>Buy subscription</h1>
+    <p>All courses with subscription</p>
+
+    <button>Buy subscription (15$)</button>
+    {% else %}
+    <p>You have full pack</p>
+    {% endif %}
+</div>
+{% endblock %}

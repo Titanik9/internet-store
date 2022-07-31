@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header class="container">
+        <span class="logo">Learn&Rock</span>
+        <nav>
+            <a href="{% url 'home' %}">Main page</a>
+            <a href="{% url 'tarrifs' %}">Tarifs</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'exit' %}">Exit</a>
+            {% else %}
+                <a href="{% url 'user' %}">Enter</a>
+                <a href="{% url 'reg' %}">Registration</a>
+            {% endif %}
+        </nav>
+    </header>
+    {% block main %}
+    {% endblock %}
+    <footer>All root secure</footer>
+</body>
+</html>
